@@ -1,9 +1,7 @@
-import "./styles/global.css"
+import { Router } from "@/Router"
+
+import "@/styles/global.css"
 
 export function App() {
-  return (
-    <div className="App">
-      <h1>Ignite todo</h1>
-    </div>
-  )
+  return <Router />
 }
