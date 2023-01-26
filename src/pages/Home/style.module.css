@@ -1,6 +1,10 @@
 .searchContainer {
   width: 100%;
-  display: flex;
+  max-width: 736px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 1rem;
   justify-content: center;
 
   position: relative;
