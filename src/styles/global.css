@@ -14,6 +14,10 @@
   --blue-900: #1E6F9F;
 
   --red-900: #E25858;
+
+  --font-sm: 0.75rem;
+  --font-md: 0.875rem;
+  --font-g: 1rem;
 }
 
 * {
