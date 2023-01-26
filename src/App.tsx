@@ -1,7 +1,12 @@
+import { BrowserRouter } from "react-router-dom"
 import { Router } from "@/Router"
 
 import "@/styles/global.css"
 
 export function App() {
-  return <Router />
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }
