@@ -35,3 +35,9 @@
 .purple {
   color: var(--purple-500);
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
