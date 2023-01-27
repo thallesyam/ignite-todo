@@ -1,0 +1,8 @@
+.text {
+  font-size: var(--font-md);
+  color: var(--gray-100);
+}
+
+.title {
+  font-weight: 700;
+}

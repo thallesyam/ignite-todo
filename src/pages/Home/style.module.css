@@ -1,7 +1,10 @@
-.searchContainer {
+.container {
   width: 100%;
   max-width: 736px;
   margin: 0 auto;
+}
+
+.searchContainer {
   display: grid;
   grid-template-columns: 1fr 90px;
   gap: 1rem;
@@ -9,4 +12,26 @@
 
   position: relative;
   top: -27px;
+}
+
+.headingInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1.5rem;
+}
+
+.headingInfoText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blue {
+  color: var(--blue-500);
+}
+
+.purple {
+  color: var(--purple-500);
 }
