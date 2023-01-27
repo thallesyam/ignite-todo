@@ -2,7 +2,9 @@
   background: transparent;
   border: 2px solid var(--blue-500);
   width: 1.5rem;
+  min-width: 1.5rem;
   height: 1.5rem;
+  min-height: 1.5rem;
   border-radius: 999px;
   display: flex;
   align-items: center;
