@@ -5,6 +5,7 @@ import { Input } from "@/components/Input"
 import { Button } from "@/components/Button"
 import { Heading } from "@/components/Heading"
 import { Count } from "@/components/Count"
+import { TodoItem } from "@/components/TodoItem"
 
 import style from "./style.module.css"
 
@@ -35,6 +36,16 @@ export function Home() {
             <Count>2 de 5</Count>
           </div>
         </header>
+
+        <main>
+          <TodoItem
+            todo={{
+              id: "1",
+              isDone: false,
+              text: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+            }}
+          />
+        </main>
       </section>
     </div>
   )
