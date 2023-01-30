@@ -1,4 +1,4 @@
-import { useState, useCallback, ChangeEvent } from "react"
+import { useState, useCallback, ChangeEvent, useEffect } from "react"
 import { PlusCircle } from "phosphor-react"
 
 import { Header } from "@/components/Header"
@@ -22,23 +22,29 @@ export function Home() {
   const [todos, setTodos] = useState<ITodo[]>([])
   const finishTodos = todos.filter((todo) => todo.isDone).length
 
-  const finishTodo = useCallback(
-    (id: string) => {
-      const todo = todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            isDone: !todo.isDone,
-          }
+  useEffect(() => {
+    if (!window) return
+
+    const initialTodos = localStorage.getItem("@igniteTodo:todos")
+    if (!initialTodos) return
+    setTodos(JSON.parse(initialTodos))
+  }, [])
+
+  function finishTodo(id: string) {
+    const todo = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          isDone: !todo.isDone,
         }
+      }
 
-        return todo
-      })
+      return todo
+    })
 
-      setTodos(todo)
-    },
-    [todos]
-  )
+    setTodos(todo)
+    localStorage.setItem("@igniteTodo:todos", JSON.stringify(todo))
+  }
 
   function handleChangeTodo(event: ChangeEvent<HTMLInputElement>) {
     setTodoText(event.target.value)
@@ -51,12 +57,19 @@ export function Home() {
       text: todoText,
     }
 
-    setTodos((prevTodos) => [...prevTodos, todo])
+    setTodos((prevTodos) => {
+      localStorage.setItem(
+        "@igniteTodo:todos",
+        JSON.stringify([...prevTodos, todo])
+      )
+      return [...prevTodos, todo]
+    })
   }
 
   function handleDeleteTodo(id: string) {
     const newTodos = todos.filter((todo) => todo.id !== id)
     setTodos(newTodos)
+    localStorage.setItem("@igniteTodo:todos", JSON.stringify(newTodos))
   }
 
   return (

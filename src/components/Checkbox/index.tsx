@@ -13,6 +13,7 @@ export function Checkbox({ id, isDone, finishTodo }: ICheckbox) {
     <RadixCheckbox.Root
       className={style.checkboxRoot}
       id={id}
+      checked={isDone}
       onClick={() => finishTodo(id)}
     >
       <RadixCheckbox.Indicator className={style.checkboxIndicator}>
