@@ -1,4 +1,4 @@
-import { useState, useCallback, ChangeEvent, useEffect } from "react"
+import { useState, ChangeEvent, useEffect } from "react"
 import { PlusCircle } from "phosphor-react"
 
 import { Header } from "@/components/Header"
@@ -7,9 +7,9 @@ import { Button } from "@/components/Button"
 import { Heading } from "@/components/Heading"
 import { Count } from "@/components/Count"
 import { TodoItem } from "@/components/TodoItem"
+import { Empty } from "@/components/Empty"
 
 import style from "./style.module.css"
-import { Empty } from "@/Empty"
 
 type ITodo = {
   id: string
