@@ -9,6 +9,7 @@ import { Count } from "@/components/Count"
 import { TodoItem } from "@/components/TodoItem"
 
 import style from "./style.module.css"
+import { Empty } from "@/Empty"
 
 type ITodo = {
   id: string
@@ -98,16 +99,22 @@ export function Home() {
         </header>
 
         <main>
-          {todos
-            .sort((x, y) => Number(x.isDone) - Number(y.isDone))
-            .map((todo) => (
-              <TodoItem
-                todo={todo}
-                finishTodo={finishTodo}
-                handleDeleteTodo={handleDeleteTodo}
-                key={todo.id}
-              />
-            ))}
+          {todos.length === 0 ? (
+            <Empty />
+          ) : (
+            <>
+              {todos
+                .sort((x, y) => Number(x.isDone) - Number(y.isDone))
+                .map((todo) => (
+                  <TodoItem
+                    todo={todo}
+                    finishTodo={finishTodo}
+                    handleDeleteTodo={handleDeleteTodo}
+                    key={todo.id}
+                  />
+                ))}
+            </>
+          )}
         </main>
       </section>
     </div>
